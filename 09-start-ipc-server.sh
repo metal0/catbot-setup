@@ -4,5 +4,5 @@
 #	This script starts the IPC server
 #
 
-cd cathook-ipc-server
+cd cathook-ipc-server/bin
 ./server
