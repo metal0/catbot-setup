@@ -10,4 +10,5 @@ for i in {1..12}
 do
 	echo "Deleting user catbot-$i"
 	sudo userdel -r catbot-$i
+	sudo groupdel catbot-$i
 done
