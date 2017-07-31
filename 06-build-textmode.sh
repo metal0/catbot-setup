@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-#	This script creates a new group and adds current user to it
+#	This script builds textmode build of cathook (in user's cathook folder)
 #
 
 numcpu=$(grep -c ^processor /proc/cpuinfo)

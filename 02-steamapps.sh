@@ -10,7 +10,7 @@ if [ $EUID == 0 ]; then
 fi
 
 if ! [ $(getent group catbots) ]; then
-	echo "Please, run usergroup.sh first."
+	echo "Please, run scripts in the right order."
 	exit
 fi
 

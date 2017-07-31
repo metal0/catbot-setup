@@ -4,10 +4,12 @@
 #	12 is pretty optimal amount
 #
 
-steamapps=$(cat steamapps-loc)
+if ! [ -e "/opt/steamapps" ]; then
+	echo "Can't find steamapps folder."
+	echo "Please, run scripts in the right order."
+	exit
+fi
 
-echo "Steamapps path: $steamapps"
-echo "Is that correct? If no, close this window immediately."
 read -p "Press ENTER to continue"
 
 for i in {0..12}
@@ -16,5 +18,5 @@ do
 	sudo useradd -m catbot-$i
 	sudo usermod -g catbots catbot-$i
 	sudo -H -u steam-$1 bash -c "mkdir -p /home/catbot-$i/.local/share/Steam"
-	sudo -H -u steam-$1 bash -c "ln -s \"$steamapps\" \"/home/catbot-$1/.local/share/Steam/steamapps\""
+	sudo -H -u steam-$1 bash -c "ln -s \"/opt/steamapps\" \"/home/catbot-$1/.local/share/Steam/steamapps\""
 done

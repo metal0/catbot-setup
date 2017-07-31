@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-#	This script creates a new group and adds current user to it
+#	This script asks user about location of cathook folder and saves it
 #
 
 if [ $EUID == 0 ]; then
