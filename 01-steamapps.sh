@@ -1,5 +1,7 @@
+#!/bin/bash
+
 #
-#	This script will store path to steamapps to use it in other scripts later
+#	This script will make a link to steamapps in /opt/steamapps
 #
 
 if [ "$#" -ne 1 ]; then
@@ -15,6 +17,9 @@ if ! [ -e "$1/common/Team Fortress 2/tf/gameinfo.txt" ]; then
 	exit
 fi
 
-echo "Everything looks good. Saving steamapps path."
+echo "Is this the correct path?"
 echo "$1"
+read -p "Press enter to continue or Ctrl+C (close) to stop."
+sudo ln -s "$1" "/opt/steamapps"
+sudo chown $USER:catbots -h "/opt/steamapps"
 echo "$1" > steamapps-loc
