@@ -4,6 +4,16 @@
 #	This script will make a link to steamapps in /opt/steamapps
 #
 
+if [ $EUID == 0 ]; then
+	echo "This script must not be run as root"
+	exit
+fi
+
+if ! [ $(getent group catbots) ]; then
+	echo "Please, run usergroup.sh first."
+	exit
+fi
+
 if [ "$#" -ne 1 ]; then
 	echo "Usage:"
 	echo "    $0 \"/path/to/steamapps\""
@@ -13,7 +23,7 @@ fi
 # Check if this path contains file specific to Team Fortress 2
 
 if ! [ -e "$1/common/Team Fortress 2/tf/gameinfo.txt" ]; then
-	echo "Specified path doesn't point to steamapps or you don't have Team Fortress 2 instealled"
+	echo "Specified path doesn't point to steamapps or you don't have Team Fortress 2 installed"
 	exit
 fi
 
@@ -21,5 +31,4 @@ echo "Is this the correct path?"
 echo "$1"
 read -p "Press enter to continue or Ctrl+C (close) to stop."
 sudo ln -s "$1" "/opt/steamapps"
-sudo chown $USER:catbots -h "/opt/steamapps"
-echo "$1" > steamapps-loc
+sudo chown -R $USER:catbots "/opt/steamapps"
