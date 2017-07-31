@@ -12,7 +12,7 @@ fi
 
 read -p "Press ENTER to continue"
 
-for i in {0..12}
+for i in {1..12}
 do
 	echo "Creating user catbot-$i"
 	sudo useradd -m catbot-$i
