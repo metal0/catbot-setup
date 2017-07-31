@@ -13,3 +13,4 @@ git fetch
 git pull
 
 bash ./06-rebuild-ipc-server.sh
+bash ./07-build-textmode.sh
