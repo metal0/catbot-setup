@@ -18,5 +18,5 @@ do
 	sudo useradd -m catbot-$i
 	sudo usermod -g catbots catbot-$i
 	sudo -H -u catbot-$i bash -c "mkdir -p /home/catbot-$i/.local/share/Steam"
-	sudo -H -u catbot-$i bash -c "ln -s \"/opt/steamapps\" \"/home/catbot-$1/.local/share/Steam/steamapps\""
+	sudo -H -u catbot-$i bash -c "ln -s \"/opt/steamapps\" \"/home/catbot-$i/.local/share/Steam/steamapps\""
 done
