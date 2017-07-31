@@ -5,7 +5,7 @@ if ! [[ $proc =~ ^[0-9]+$ ]]; then
    echo "Couldn't find process! Are you sure a game is running?" >&2; exit 1
 fi
 
-if grep -q "$(realpath cathook/libcathook.so)" /proc/"$proc"/maps; then
+if grep -q "libcathook.so" /proc/"$proc"/maps; then
   echo already loaded
   exit
 fi
