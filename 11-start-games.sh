@@ -25,7 +25,7 @@ do
 		echo "Bot $i is already running"
 		continue
 	fi
-	sudo -H -u catbot-$i bash -c 'steam -applaunch 440 -sw -textmode -novid -nojoy -nosound -noshaderapi -norebuildaudio -nomouse -nomessagebox -nominidumps -nohltv -nobreakpad &>/dev/null &'
+	sudo su - catbot-$i -c 'steam -applaunch 440 -sw -textmode -novid -nojoy -nosound -noshaderapi -norebuildaudio -nomouse -nomessagebox -nominidumps -nohltv -nobreakpad &>/dev/null &'
 	sleep 1
 done
 
