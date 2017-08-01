@@ -16,5 +16,5 @@ xhost + >/dev/null
 for i in $(seq 1 $max)
 do
 	echo "Starting Steam for catbot $i"
-	sudo -H -u catbot-$i bash -c 'steam &>/dev/null &'
+	sudo su - cabot-$i -c 'steam &>/dev/null &'
 done
