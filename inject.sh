@@ -17,5 +17,5 @@ gdb -n -q -batch \
   -ex "call \$dlopen(\"$(realpath cathook/libcathook.so)\", 1)" \
   -ex "call dlerror()" \
   -ex 'print (char *) $2' \
-  -ex "detach" \
-  -ex "quit"
+  -ex "continue" \
+  -ex "backtrace"
